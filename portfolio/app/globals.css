@@ -13,41 +13,108 @@ html {
 }
 
 body {
-  background-color: #0A0A0A;
-  color: #FFFFFF;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #7dd3fc;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, #fef08a 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 100% 30%, rgba(244, 114, 182, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 45% at 0% 80%, rgba(74, 222, 128, 0.3) 0%, transparent 50%),
+    linear-gradient(180deg, #fef9c3 0%, #fde047 18%, #fbbf24 42%, #38bdf8 78%, #0ea5e9 100%);
+  background-attachment: fixed;
+  color: #422006;
 }
 
 ::selection {
-  background-color: rgba(0, 255, 136, 0.2);
-  color: #FFFFFF;
+  background-color: rgba(244, 114, 182, 0.4);
+  color: #1e1b4b;
 }
 
-/* Scrollbar */
+.toy-grid-floor {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.playful-rainbow-bar {
+  height: 3px;
+  width: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    #ec4899,
+    #facc15,
+    #4ade80,
+    #38bdf8,
+    #a855f7,
+    #fb923c,
+    #ec4899
+  );
+  background-size: 400% 100%;
+  animation: rainbow-slide 10s linear infinite;
+}
+
+@keyframes rainbow-slide {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@layer utilities {
+  .text-toy-bubble {
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    -webkit-text-stroke: 0.85px rgba(255, 255, 255, 0.92);
+    paint-order: stroke fill;
+    text-shadow:
+      0 1px 0 rgba(14, 165, 233, 0.9),
+      1px 2px 0 #0284c7,
+      3px 4px 0 rgba(3, 105, 161, 0.75),
+      5px 10px 24px rgba(14, 165, 233, 0.28);
+  }
+
+  .text-toy-bubble-soft {
+    color: #fffefa;
+    -webkit-text-stroke: 0.75px rgba(255, 255, 255, 0.88);
+    paint-order: stroke fill;
+    text-shadow:
+      1px 1px 0 rgba(244, 114, 182, 0.95),
+      2px 3px 0 rgba(219, 39, 119, 0.55),
+      4px 8px 18px rgba(236, 72, 153, 0.25);
+  }
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2A2A2A;
-  border-radius: 4px;
+  background: linear-gradient(180deg, #38bdf8, #ec4899);
+  border-radius: 8px;
+  border: 3px solid rgba(255, 255, 255, 0.85);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00FF88;
+  background: linear-gradient(180deg, #0ea5e9, #db2777);
 }
 
-/* Hide cursor on desktop for custom cursor */
 @media (min-width: 1024px) {
   body {
     cursor: none;
   }
 
-  a, button {
+  a,
+  button {
     cursor: none;
   }
 }

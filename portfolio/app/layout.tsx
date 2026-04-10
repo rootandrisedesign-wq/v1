@@ -1,18 +1,23 @@
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Fredoka, Inter } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import SmoothScroll from '@/components/SmoothScroll'
+import CustomCursor from '@/components/CustomCursor'
+import PlayfulDecor from '@/components/PlayfulDecor'
+import BrushStrokes from '@/components/BrushStrokes'
+import { ParallaxProvider } from '@/components/ParallaxProvider'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 })
 
-const spaceGrotesk = Space_Grotesk({
+const fredoka = Fredoka({
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  variable: '--font-playful',
+  weight: ['500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -23,11 +28,6 @@ export const metadata: Metadata = {
   ),
   title: 'Tulayakorn | Creative Director & Designer',
   description: 'Portfolio showcasing innovative design and community-driven projects',
-  openGraph: {
-    title: 'Tulayakorn | Creative Director & Designer',
-    description: 'Portfolio showcasing innovative design and community-driven projects',
-    images: ['/og-image.jpg'],
-  },
 }
 
 export default function RootLayout({
@@ -36,13 +36,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fredoka.variable}`}>
       <body className={inter.className}>
-        <SmoothScroll>
-          <Navigation />
-          <main>{children}</main>
-          <Footer />
-        </SmoothScroll>
+        <PlayfulDecor />
+        <BrushStrokes />
+        <ParallaxProvider>
+          <CustomCursor />
+          <SmoothScroll>
+            <div className="relative z-10">
+              <Navigation />
+              <main>{children}</main>
+              <Footer />
+            </div>
+          </SmoothScroll>
+        </ParallaxProvider>
       </body>
     </html>
   )
