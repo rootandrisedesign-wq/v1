@@ -16,6 +16,11 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000',
+  ),
   title: 'Tulayakorn | Creative Director & Designer',
   description: 'Portfolio showcasing innovative design and community-driven projects',
   openGraph: {
