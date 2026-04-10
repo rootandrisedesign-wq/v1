@@ -4,3 +4,4 @@
 **/out
 portfolio/.env*
 portfolio/*.tsbuildinfo
+portfolio/portfolio/
