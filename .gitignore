@@ -1,7 +1,17 @@
 .DS_Store
-**/node_modules
-**/.next
-**/out
-portfolio/.env*
-portfolio/*.tsbuildinfo
-portfolio/portfolio/
+node_modules
+.next
+out
+.vercel
+.env*
+*.tsbuildinfo
+next-env.d.ts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+coverage
+*.pem
+
+# Old monorepo path (local leftovers; Next.js app is now at repo root)
+portfolio/
